@@ -3,7 +3,8 @@ Sistema de monitoreo biomédico para análisis de mediciones UCI y detección de
 
 ## Autores
 *Samuel Gustavo Pedraza Martinez
-Andrés Felipe Rodríguez Coronado
+
+*Andrés Felipe Rodríguez Coronado
 
 ---
 
