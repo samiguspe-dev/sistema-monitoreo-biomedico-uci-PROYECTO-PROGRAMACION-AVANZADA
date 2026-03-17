@@ -2,9 +2,9 @@
 Sistema de monitoreo biomédico para análisis de mediciones UCI y detección de anomalías en sensores médicos.
 
 ## Autores
-*Samuel Gustavo Pedraza Martinez
+* Samuel Gustavo Pedraza Martinez
 
-*Andrés Felipe Rodríguez Coronado
+* Andrés Felipe Rodríguez Coronado
 
 ---
 
