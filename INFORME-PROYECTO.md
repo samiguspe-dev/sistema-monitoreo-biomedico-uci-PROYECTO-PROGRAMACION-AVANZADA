@@ -2,6 +2,9 @@
 
 ## Sistema de Monitoreo Biomédico en UCI
 
+* Samuel Gustavo Pedraza Martinez
+* Andrés Rodríguez Coronado
+
 ---
 
 ## Descripción general del sistema
