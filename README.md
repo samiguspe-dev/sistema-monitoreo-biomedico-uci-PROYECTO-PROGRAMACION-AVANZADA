@@ -106,17 +106,159 @@ Si no se sigue este orden, el programa mostrará mensajes de error.
 
 ---
 
-## Compilación del programa
+# Compilación y ejecución del programa
 
-### Requisitos
+El proyecto fue desarrollado en **C++** y puede ejecutarse utilizando **Visual Studio Code** o cualquier compilador compatible (como g++).
 
-- Compilador C++ (g++ recomendado)
-- Sistema operativo Windows, Linux o similar
+El sistema utiliza rutas relativas, por lo que es importante no modificar la estructura del proyecto para garantizar el acceso correcto a los archivos.
 
-### Pasos
+---
 
-1. Descargar el repositorio (ZIP o clonar):
+## 1. Descargar y preparar el proyecto
 
-```bash
-git clone https://github.com/TU_USUARIO/sistema-monitoreo-biomedico-uci.git
+El proyecto puede descargarse como archivo `.zip`.
+
+Pasos:
+
+1. Descargar el repositorio
+2. Descomprimir el archivo en cualquier carpeta
+3. Verificar que la estructura del proyecto sea la siguiente:
+
+```
+sistema-monitoreo-biomedico-uci
+│
+├── datos
+│   ├── configuracion.txt
+│   ├── pacientes_small.csv
+│   └── patient_readings_simulation.bsf
+│
+├── funciones
+├── bibliotecas
+├── main.cpp
+├── programa.exe
+└── README.md
+```
+
+La carpeta `datos/` contiene todos los archivos necesarios para la ejecución del sistema.
+
+---
+
+## 2. Abrir el proyecto
+
+1. Abrir Visual Studio Code
+2. Seleccionar **Open Folder**
+3. Elegir la carpeta:
+
+```
+sistema-monitoreo-biomedico-uci
+```
+
+Esto cargará todos los archivos del sistema.
+
+---
+
+## 3. Compilar el programa
+
+Si no deseas usar el ejecutable incluido, puedes compilar manualmente.
+
+Abrir una terminal en la carpeta del proyecto y ejecutar:
+
+```
+g++ main.cpp -o programa
+```
+
+Si el proyecto tiene múltiples archivos `.cpp`, usar:
+
+```
+g++ *.cpp -o programa
+```
+
+Esto generará el archivo ejecutable del programa.
+
+---
+
+## 4. Ejecutar el programa
+
+Desde la carpeta principal del proyecto:
+
+En Windows:
+
+```
+programa.exe
+```
+
+En Linux o Mac:
+
+```
+./programa
+```
+
+Es importante ejecutar el programa desde la carpeta raíz, ya que los archivos en la carpeta `datos/` se cargan mediante rutas relativas.
+
+---
+
+## 5. Ubicación de los componentes del sistema
+
+* `main.cpp` contiene el menú principal y el flujo del programa
+* `bibliotecas/` contiene las estructuras del sistema
+* `funciones/` contiene la implementación de la lógica del programa
+* `datos/` contiene los archivos de entrada
+
+---
+
+## 6. Funcionamiento del programa
+
+Al ejecutarse, el sistema muestra un menú con las siguientes opciones:
+
+1. Cargar archivo de configuracion y datos de pacientes
+2. Leer archivo .bsf
+3. Generar reporte de anomalias
+4. Calcular estadisticas
+5. Exportar datos procesados
+6. Salir
+
+Cada opción ejecuta una funcionalidad específica dentro del sistema.
+
+---
+
+## 7. Flujo recomendado de ejecución
+
+Para evitar errores, se recomienda seguir este orden:
+
+**Paso 1: Cargar configuración y pacientes (Opción 1)**
+
+* Lee `datos/configuracion.txt`
+* Carga los rangos permitidos
+* Lee `datos/pacientes_small.csv`
+* Guarda los pacientes en memoria
+
+**Paso 2: Leer archivo binario (Opción 2)**
+
+* Abre `datos/patient_readings_simulation.bsf`
+* Carga salas, máquinas, mediciones y lecturas
+
+**Paso 3: Generar reporte de anomalías (Opción 3)**
+
+* Analiza las lecturas
+* Detecta valores fuera de rango
+* Genera el archivo `anomalias.txt`
+
+**Paso 4: Análisis de datos (Opción 4)**
+
+* Detecta lecturas anómalas
+* Evalúa anomalías en ECG
+
+**Paso 5: Exportación de datos (Opción 5)**
+
+* Genera reportes individuales
+* Exporta pacientes con ECG anómalo al archivo `pacientes_ecg_anomalos.dat`
+
+---
+
+## 8. Consideraciones importantes
+
+* Ejecutar siempre desde la carpeta raíz del proyecto
+* No mover la carpeta `datos/`
+* Los archivos de salida se generan automáticamente
+* El sistema incluye validaciones para evitar errores durante la ejecución
 
