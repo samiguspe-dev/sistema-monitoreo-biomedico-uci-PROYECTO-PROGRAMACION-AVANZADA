@@ -133,11 +133,34 @@ sistema-monitoreo-biomedico-uci
 │   └── patient_readings_simulation.bsf
 │
 ├── funciones
+│   ├── separar_pacientes.h
+│   ├── separar_config.h
+│   ├── leer_binario.h
+│   ├── generar_reporte_anomalias.h
+│   ├── reporte_paciente.h
+│   ├── detectar_anomalia_ecg.h
+│   ├── exportar_ecg_anomalo.h
+│   ├── es_anomalia.h
+│   ├── comparar_fechas.h
+│   ├── cargar_configuraciones.h
+│   ├── cargar_pacientes.h
+│   └── contar_lineas.h
+│
 ├── bibliotecas
+│   ├── SALAUCI.h
+│   ├── MAQUINAUCI.h
+│   ├── MEDICION.h
+│   ├── LECTURA.h
+│   ├── PACIENTE.h
+│   ├── MEDICIONES_PACIENTE.h
+│   ├── CONFIGURACION.h
+│   └── ARCHIVOPA.h
+│
 ├── main.cpp
 ├── programa.exe
 └── README.md
 ```
+La carpeta `funciones/` contiene la implementación de la lógica del sistema, mientras que `bibliotecas/` define las estructuras utilizadas para organizar los datos.
 
 La carpeta `datos/` contiene todos los archivos necesarios para la ejecución del sistema.
 
@@ -164,7 +187,7 @@ Si no deseas usar el ejecutable incluido, puedes compilar manualmente.
 Abrir una terminal en la carpeta del proyecto y ejecutar:
 
 ```
-g++ main.cpp -o programa
+g++ main.cpp -o programa.exe
 ```
 
 Si el proyecto tiene múltiples archivos `.cpp`, usar:
@@ -235,7 +258,9 @@ Para evitar errores, se recomienda seguir este orden:
 **Paso 2: Leer archivo binario (Opción 2)**
 
 * Abre `datos/patient_readings_simulation.bsf`
-* Carga salas, máquinas, mediciones y lecturas
+* Lee las salas, máquinas, mediciones y lecturas
+* Carga toda la información en memoria
+
 
 **Paso 3: Generar reporte de anomalías (Opción 3)**
 
@@ -244,6 +269,8 @@ Para evitar errores, se recomienda seguir este orden:
 * Genera el archivo `anomalias.txt`
 
 **Paso 4: Análisis de datos (Opción 4)**
+
+Al escoger la opcion 4 se abrira un sub-menu en la terminal que mostrara 
 
 * Detecta lecturas anómalas
 * Evalúa anomalías en ECG
