@@ -270,14 +270,17 @@ Para evitar errores, se recomienda seguir este orden:
 
 **Paso 4: Análisis de datos (Opción 4)**
 
-Al escoger la opcion 4 se abrira un sub-menu en la terminal que mostrara 
+Al escoger la opción 4 se abrira un sub-menu en la terminal que mostrara las siguientes opciones:
 
-* Detecta lecturas anómalas
-* Evalúa anomalías en ECG
+* Detecta lecturas anómalas de un paciente
+* Detectar el ECG anómalo en un paciente
+* La opción de volver al menú principal
 
 **Paso 5: Exportación de datos (Opción 5)**
 
-* Genera reportes individuales
+Al escoger la opción 5 se abrira un sub-menú en la terminal que mostrara las siguientes opciones:
+
+* Genera reportes individuales por paciente
 * Exporta pacientes con ECG anómalo al archivo `pacientes_ecg_anomalos.dat`
 
 ---
@@ -288,4 +291,38 @@ Al escoger la opcion 4 se abrira un sub-menu en la terminal que mostrara
 * No mover la carpeta `datos/`
 * Los archivos de salida se generan automáticamente
 * El sistema incluye validaciones para evitar errores durante la ejecución
+
+---
+
+## 9. Gestión de memoria
+
+El sistema utiliza memoria dinámica para manejar estructuras como salas, máquinas, mediciones, lecturas, pacientes y configuraciones.
+
+Durante la ejecución, se realizan asignaciones dinámicas mediante `new` para crear arreglos cuyo tamaño depende de la cantidad de datos leídos desde los archivos.
+
+Para evitar problemas de memoria, el programa implementa liberación manual utilizando `delete[]` en los siguientes casos:
+
+* Cuando se recargan datos (por ejemplo, al volver a leer el archivo binario)
+* Al finalizar la ejecución del programa
+* Al redimensionar arreglos dinámicos (copiando a uno nuevo y liberando el anterior)
+
+Este manejo garantiza que no se presenten fugas de memoria y que el uso de recursos sea controlado.
+
+---
+
+## 10. Validaciones implementadas
+
+El programa incluye diferentes validaciones para asegurar un funcionamiento correcto y evitar errores durante la ejecución.
+
+Entre las principales validaciones se encuentran:
+
+* Verificación de apertura de archivos de configuración, pacientes y archivo binario
+* Control de entrada del usuario en el menú (evitando valores no numéricos)
+* Restricción del flujo del programa (no permite ejecutar opciones sin haber cargado datos previamente)
+* Validación de existencia de configuraciones para cada tipo de sensor
+* Control de duplicados al procesar pacientes
+* Verificación de lecturas según el tipo de sensor (temperatura, oxígeno, presión, ECG)
+
+Estas validaciones permiten que el sistema sea más robusto y reduzca la probabilidad de fallos durante su uso.
+
 
